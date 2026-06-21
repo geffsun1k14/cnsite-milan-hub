@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>米兰体育 · 稳定资讯与赛事入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f7f4f0;
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+            color: #2d2a24;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+        .page {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fcfbf9;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+        }
+        @media (min-width: 768px) {
+            .page { padding: 3.5rem 3rem; }
+        }
+
+        /* 主视觉 —— 安静的文字风景 */
+        .hero {
+            border-left: 6px solid #b8915c;
+            padding-left: 1.8rem;
+            margin: 0 0 2.8rem 0;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #3c362e;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #686156;
+            max-width: 85%;
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { max-width: 100%; }
+        }
+
+        /* 介绍段落 — 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+            margin: 2.8rem 0;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid #e5dfd6;
+            border-radius: 20px;
+            padding: 1.6rem 1.3rem 1.8rem;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.03);
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #4f463c;
+            margin-bottom: 0.6rem;
+            border-bottom: 2px solid #ece5dc;
+            padding-bottom: 0.3rem;
+        }
+        .card p {
+            font-size: 0.96rem;
+            color: #4f483f;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.6rem;
+        }
+        .card li {
+            padding: 0.35rem 0 0.2rem 1.2rem;
+            position: relative;
+            font-size: 0.93rem;
+            color: #5b5349;
+        }
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #b8915c;
+            font-weight: bold;
+        }
+
+        /* 适合人群卡片——独立样式 */
+        .audience-box {
+            background: #f4efe8;
+            padding: 2rem 1.8rem;
+            border-radius: 20px;
+            margin: 2.2rem 0 2.6rem 0;
+        }
+        .audience-box h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #4f463c;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        .audience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1rem;
+        }
+        .audience-tags span {
+            background: #e6ddd2;
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            color: #3d362f;
+        }
+
+        /* 引用 / 提示框 */
+        .note {
+            background: #fbf7f2;
+            border-left: 5px solid #b8915c;
+            padding: 1.2rem 1.6rem;
+            margin: 2.2rem 0;
+            border-radius: 0 14px 14px 0;
+            font-style: normal;
+        }
+        .note p {
+            margin: 0.2rem 0;
+            color: #4f483f;
+        }
+        .note strong {
+            color: #4f3f2e;
+        }
+
+        /* 自然链接段落 */
+        .link-paragraph {
+            background: #ffffff;
+            padding: 1.5rem 1.8rem;
+            border-radius: 18px;
+            border: 1px solid #ebe3d8;
+            margin: 2rem 0;
+        }
+        .link-paragraph p {
+            margin-bottom: 0.8rem;
+        }
+        .link-paragraph a {
+            color: #7d5f3d;
+            text-decoration: none;
+            border-bottom: 1px solid #d8cabb;
+            transition: border-color 0.2s;
+        }
+        .link-paragraph a:hover {
+            border-bottom-color: #7d5f3d;
+        }
+
+        /* FAQ 摘要 (极简) */
+        .faq-summary {
+            margin-top: 2.5rem;
+            border-top: 1px solid #e3dbcf;
+            padding-top: 1.8rem;
+        }
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+        .faq-item .q {
+            font-weight: 500;
+            color: #3c362e;
+        }
+        .faq-item .a {
+            color: #5e554b;
+            margin-top: 0.3rem;
+            padding-left: 1rem;
+            font-size: 0.95rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e7dfd4;
+            margin: 2rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #9b9287;
+            margin-top: 2.8rem;
+            letter-spacing: 0.3px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>米兰体育<br>稳定入口 · 赛事与资讯</h1>
+        <p>一个安静的聚集地：体育赛果、趋势讨论、信息来源与页面指引。</p>
+    </div>
+
+    <!-- 第一段引出：用途卡片 -->
+    <p style="margin-bottom: 0.5rem; font-size: 1.02rem; color: #4f483f;">
+        无论是日常跟踪联赛动态，还是寻找某一项运动的深度内容，都可以从 
+        <a href="https://cnsite--milan.com" style="color:#7d5f3d; text-decoration: none; border-bottom: 1px solid #d8cabb;">米兰体育</a> 
+        获得一个相对稳定的起点。页面结构偏向信息卡片式，以下列出几个常见用途。
+    </p>
+
+    <!-- 用途卡片网格 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>📋 赛事信息聚合</h3>
+            <p>涵盖足球、篮球及多个主流项目的赛程、积分和近期战报。页面以简讯卡片方式呈现，便于快速扫读。</p>
+        </div>
+        <div class="card">
+            <h3>📰 话题与短评</h3>
+            <p>每轮比赛后更新简要评述，不追求冗长分析，更注重还原比赛进程和关键数据。</p>
+        </div>
+        <div class="card">
+            <h3>🔗 导航与索引</h3>
+            <p>内部链接整理成主题卡片，方便从单个入口跳转到具体联赛或专题。</p>
+        </div>
+        <div class="card">
+            <h3>📅 日程提醒</h3>
+            <p>重大赛事、转会窗口、杯赛抽签等时间节点以列表形式归纳，减少遗漏。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <div class="audience-box">
+        <h2>适合哪些人使用</h2>
+        <div class="audience-tags">
+            <span>日常看球但不追更的观众</span>
+            <span>需要快速回顾赛果的人</span>
+            <span>体育论坛 / 社交媒体用户</span>
+            <span>喜欢浏览信息卡片的阅读者</span>
+            <span>寻找稳定资讯入口的访客</span>
+        </div>
+    </div>
+
+    <!-- 提示框 / 引用块：说明页面质感 -->
+    <div class="note">
+        <p><strong>提示</strong> 本站不采用弹窗或强制跳转，页面结构偏向静态卡片与自然段落。如果你更喜欢轻量级浏览方式，<strong>米兰体育</strong> 的内容布局会相对直接。所有链接都放置在自然句子中，不干扰阅读节奏。</p>
+    </div>
+
+    <!-- 自然链接段落（核心） -->
+    <div class="link-paragraph">
+        <p>很多人第一次接触 <a href="https://cnsite--milan.com">米兰体育</a> 是因为想找一个加载快、没有杂乱广告的赛果站。实际使用下来，无论是手机还是电脑，页面排版都会随屏幕宽度自动调整，卡片之间的留白也相对舒适。如果你习惯在周末晚上同时关注几场联赛，把 <a href="https://cnsite--milan.com">米兰体育</a> 放在书签栏或许能节省一些来回翻找的时间。</p>
+        <p>另外，页面上方的主视觉和卡片区域会不定期微调，但整体信息结构保持稳定。这也是为什么有些人会把这里当作一个常驻入口——不需要每次重新适应布局。</p>
+    </div>
+
+    <!-- FAQ 摘要 (非完整FAQ，只列两条) -->
+    <div class="faq-summary">
+        <div class="faq-item">
+            <div class="q">▸ 米兰体育是新闻网站吗？</div>
+            <div class="a">更偏向于信息聚合与索引，内容以赛果、日程、简短回顾为主，并非深度新闻媒体。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">▸ 页面设计为什么选用米白背景和卡片？</div>
+            <div class="a">为了适应长时间阅读，降低视觉疲劳。卡片分区也使得不同用途的信息更容易被区分。</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <p style="font-size: 0.95rem; color: #6b6258; line-height: 1.6;">
+        如果你习惯从书签直接打开体育信息，不妨把 
+        <a href="https://cnsite--milan.com" style="color:#7d5f3d; text-decoration: none; border-bottom: 1px solid #d8cabb;">米兰体育</a> 
+        加入收藏夹。整体来看，本站适合那些想要一个安静、无打扰的体育信息入口的人。页面内容会随着赛季推进而更新，但入口始终保持一致。
+    </p>
+
+    <div class="footer-note">
+        米兰体育 · 稳定入口 · 信息卡片式页面
+    </div>
+
+</div>
+</body>
+</html>
