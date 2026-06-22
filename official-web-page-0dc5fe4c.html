@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品介绍 · 竞彩网</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf5ed;
+            font-family: 'Georgia', 'Times New Roman', '宋体', 'SimSun', serif;
+            color: #2d2a24;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        .page-wrap {
+            max-width: 840px;
+            margin: 0 auto;
+            background: #fffcf7;
+            padding: 3rem 2.5rem;
+            border-radius: 28px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e5ddd2;
+        }
+
+        @media (max-width: 600px) {
+            .page-wrap {
+                padding: 1.8rem 1.2rem;
+                border-radius: 18px;
+            }
+            body {
+                padding: 1rem 0.8rem;
+            }
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #3f352c;
+            border-left: 6px solid #b8a48b;
+            padding-left: 1rem;
+            margin-bottom: 0.25rem;
+            line-height: 1.2;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #7b6f61;
+            margin-top: 0.3rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            letter-spacing: 0.3px;
+            border-bottom: 1px solid #e7ddd1;
+            padding-bottom: 0.8rem;
+        }
+
+        .hero-note {
+            background: #f1ebe2;
+            padding: 1.2rem 1.8rem;
+            border-radius: 20px;
+            margin: 2rem 0 1.8rem 0;
+            font-size: 1.05rem;
+            color: #3f3a32;
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .hero-note strong {
+            color: #4d3e30;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1.02rem;
+        }
+
+        .highlight-box {
+            background-color: #f7f2ea;
+            border-left: 6px solid #b8a48b;
+            padding: 1rem 1.5rem;
+            margin: 1.6rem 0;
+            border-radius: 0 16px 16px 0;
+            font-style: normal;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 2rem 0 1.5rem 0;
+        }
+
+        @media (max-width: 540px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: #faf5ed;
+            padding: 1.2rem 1.4rem;
+            border-radius: 18px;
+            border: 1px solid #e5dacd;
+        }
+
+        .feature-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4d3e2f;
+            margin-bottom: 0.35rem;
+            letter-spacing: 0.2px;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: #4a4239;
+        }
+
+        .scenario-note {
+            margin: 1.8rem 0 1.8rem 0;
+            padding: 1rem 1.8rem;
+            background: #eae1d6;
+            border-radius: 24px;
+            color: #3b352d;
+            border: 1px dashed #cbbaa6;
+        }
+
+        .scenario-note p {
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-mini {
+            margin: 1.8rem 0 1rem 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e1d6c9;
+            padding: 0.7rem 0;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #4d3e2f;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item p {
+            margin-bottom: 0;
+            font-size: 0.97rem;
+            color: #4e463c;
+        }
+
+        .link-sentence {
+            background: #f3ede5;
+            padding: 1rem 1.5rem;
+            border-radius: 30px;
+            margin: 2rem 0 0.5rem 0;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .link-sentence a {
+            color: #4d3e2f;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #b8a48b;
+            padding-bottom: 1px;
+            transition: border 0.2s;
+        }
+
+        .link-sentence a:hover {
+            border-bottom-color: #7b6a57;
+        }
+
+        .footnote {
+            margin-top: 2.4rem;
+            font-size: 0.85rem;
+            color: #8b7f72;
+            text-align: center;
+            border-top: 1px solid #e7ddd1;
+            padding-top: 1.5rem;
+            letter-spacing: 0.3px;
+        }
+
+        .disclaimer-tip {
+            background: #fff8f0;
+            border: 1px solid #d6cbbc;
+            border-radius: 20px;
+            padding: 0.8rem 1.4rem;
+            margin: 1.5rem 0 0.8rem 0;
+            font-size: 0.92rem;
+            color: #4f473d;
+        }
+
+        .disclaimer-tip span {
+            background: #d6cbbc;
+            color: #2d2924;
+            border-radius: 30px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            font-weight: 500;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #e7ddd1;
+            margin: 1.6rem 0;
+        }
+
+        blockquote {
+            margin: 1.4rem 0;
+            padding: 0.6rem 1.2rem;
+            border-left: 4px solid #b8a48b;
+            background: #f8f2ea;
+            color: #3f392f;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <h1>竞彩网</h1>
+    <div class="subhead">⼀个围绕竞彩信息聚合的站点 · 产品说明</div>
+
+    <!-- 摘要 / hero -->
+    <div class="hero-note">
+        <strong>站点摘要</strong> —— <a href="https://official-web-sporttery.com" style="color:#4d3e30; text-decoration:underline; border-bottom:1px solid #b8a48b;">竞彩网</a> 致力于提供清晰、结构化的体育竞彩相关资讯与参考内容，帮助用户快速了解玩法、赛事动态及基础规则。页面设计注重信息可读性，不做过度包装。
+    </div>
+
+    <p>在日常浏览体育赛事与竞彩信息时，人们常常需要一处聚合简明、内容稳定的参考站点。<strong>竞彩网</strong>正是为此搭建：从赛事基础数据到玩法说明，从规则摘要到实时动态，所有内容均以平实语言呈现，不渲染情绪，也不夸大收益预期。我们希望每一位访问者都能在安静、无干扰的阅读环境中获取自己需要的竞彩知识。</p>
+
+    <!-- 亮点卡片 -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>📋 结构化内容</h3>
+            <p>每个页面围绕单一主题展开，段落清晰，标题明确，方便快速定位信息。</p>
+        </div>
+        <div class="feature-card">
+            <h3>🧭 规则说明优先</h3>
+            <p>重点介绍竞彩游戏的基础玩法、奖金计算方式与相关术语，减少用户自行检索的成本。</p>
+        </div>
+        <div class="feature-card">
+            <h3>📄 稳定参考</h3>
+            <p>内容保持适度更新，不追求频繁改动，更注重信息准确度与表述一致性。</p>
+        </div>
+        <div class="feature-card">
+            <h3>🔍 低干扰体验</h3>
+            <p>页面采用克制排版，无弹窗、无诱导性广告，突出文章本身的阅读连贯性。</p>
+        </div>
+    </div>
+
+    <!-- 使用建议 / 场景 -->
+    <div class="scenario-note">
+        <p><strong>使用建议</strong> · 适合以下场景：</p>
+        <p style="margin-top:0.4rem;">✔ 想系统了解竞彩基础玩法的入门用户<br>
+        ✔ 需要快速查找赛事规则或奖金结构的参考者<br>
+        ✔ 偏好安静阅读、不希望被营销信息干扰的访问者</p>
+    </div>
+
+    <!-- 可信但克制的说明 -->
+    <div class="highlight-box">
+        <p><strong>关于可信与克制</strong><br>
+        本网站所呈现的信息均基于公开可查的竞彩规则和通用赛事数据。我们不提供任何形式的“必胜策略”、“内幕消息”或“包赚方案”。所有内容仅作为信息参考，实际投注请以各地官方机构的最新公告为准。请理性参与，量力而行。</p>
+    </div>
+
+    <!-- 引用块 / 补充视角 -->
+    <blockquote>
+        “了解规则是参与的第一步，而清晰的信息是理性判断的基础。” —— 站点内容编写手记
+    </blockquote>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <strong>竞彩网包含预测分析吗？</strong>
+            <p>不。</p>
+        </div>
+        <div class="faq-item">
+            <strong>内容更新频率如何？</strong>
+            <p>根据赛事周期和规则调整进行适度更新，保持信息相关性。</p>
+        </div>
+        <div class="faq-item">
+            <strong>是否可以信任站内数据？</strong>
+            <p>所有数据均标注来源或基于官方公开信息整理，但仍建议用户交叉核对。</p>
+        </div>
+    </div>
+
+    <!-- 链接自然嵌入 + 提示框 -->
+    <div class="link-sentence">
+        ⚡ 若您希望查看竞彩相关的规则与信息，可以直接访问 <a href="https://official-web-sporttery.com">竞彩网</a>，页面按照主题分类，便于浏览。
+    </div>
+
+    <div class="disclaimer-tip">
+        <span>提示</span> 本站内容仅供学习与参考，不构成任何投注建议。请遵守当地法律法规，合理规划娱乐行为。
+    </div>
+
+    <hr>
+
+    <div class="footnote">
+        温和叙述 · 产品说明式页面 &nbsp;|&nbsp; 米白底色 &amp; 文章排版
+    </div>
+</div>
+</body>
+</html>
