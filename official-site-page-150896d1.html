@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>竞彩 · 生活里的赛事乐趣</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f6fbfa;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      color: #1e2f2b;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(125deg, #0a2d27 0%, #1a5c4f 70%, #2d8772 100%);
+      padding: 60px 20px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(100, 200, 170, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 600;
+      color: #d9f2e9;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #b8e0d4;
+      max-width: 640px;
+      margin: 0 auto 28px;
+    }
+
+    .hero-extra {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
+      padding: 10px 24px;
+      border-radius: 40px;
+      color: #cceee3;
+      font-size: 0.95rem;
+      border: 1px solid rgba(200, 235, 220, 0.25);
+    }
+
+    /* ========== 网格卡片区域 ========== */
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin: 48px 0 20px;
+      color: #0a3d34;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 40%;
+      height: 4px;
+      background: #2d8772;
+      border-radius: 4px;
+      margin-top: 6px;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 24px 20px;
+      box-shadow: 0 6px 20px rgba(0, 40, 30, 0.04);
+      border: 1px solid #d9ede6;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(26, 92, 79, 0.08);
+      border-color: #a8d5c4;
+    }
+
+    .card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: #e1f3ed;
+      border-radius: 16px;
+      margin-bottom: 14px;
+      font-size: 1.5rem;
+      color: #1a5c4f;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #0f3d34;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2f4b44;
+    }
+
+    /* ========== 说明区 ========== */
+    .explain-section {
+      background: #eef7f3;
+      border-radius: 28px;
+      padding: 32px 28px;
+      margin: 40px 0;
+    }
+
+    .explain-section h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #074033;
+      margin-bottom: 16px;
+    }
+
+    .explain-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .explain-text {
+      flex: 2;
+      min-width: 260px;
+    }
+
+    .explain-text p {
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .explain-highlight {
+      flex: 1;
+      min-width: 180px;
+      background: #ffffffcc;
+      backdrop-filter: blur(2px);
+      padding: 16px 18px;
+      border-radius: 20px;
+      border-left: 5px solid #2d8772;
+    }
+
+    .explain-highlight ul {
+      list-style: none;
+      margin-top: 6px;
+    }
+
+    .explain-highlight li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: baseline;
+    }
+
+    .explain-highlight li::before {
+      content: "▹";
+      color: #1a5c4f;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+
+    /* ========== FAQ 摘要 ========== */
+    .faq-preview {
+      margin: 36px 0 48px;
+    }
+
+    .faq-preview h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #074033;
+      margin-bottom: 18px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 16px;
+      padding: 16px 20px;
+      border: 1px solid #d2e8df;
+      transition: background 0.15s;
+    }
+
+    .faq-item:hover {
+      background: #f3fcf8;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #144d40;
+      margin-bottom: 4px;
+      font-size: 0.98rem;
+    }
+
+    .faq-a {
+      font-size: 0.92rem;
+      color: #2c5c51;
+      line-height: 1.5;
+    }
+
+    /* ========== 底部链接 ========== */
+    .site-footer {
+      margin-top: 56px;
+      padding: 28px 0 40px;
+      border-top: 1px solid #c7dfd6;
+      text-align: center;
+    }
+
+    .footer-tagline {
+      font-size: 0.95rem;
+      color: #2a5f53;
+      margin-bottom: 8px;
+    }
+
+    .footer-link {
+      font-size: 0.95rem;
+    }
+
+    .footer-link a {
+      text-decoration: none;
+      color: #1d6b59;
+      font-weight: 500;
+      border-bottom: 1px dashed #4e9f8a;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .footer-link a:hover {
+      color: #0b4638;
+      border-bottom-style: solid;
+      border-color: #0b4638;
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: #578076;
+      margin-top: 16px;
+    }
+
+    /* ========== 响应式 ========== */
+    @media (max-width: 640px) {
+      .hero {
+        padding: 44px 16px 36px;
+      }
+
+      .section-title {
+        font-size: 1.35rem;
+      }
+
+      .explain-section {
+        padding: 24px 16px;
+      }
+
+      .grid-cards {
+        gap: 16px;
+      }
+
+      .card {
+        padding: 18px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <h1>赛场上下的日常</h1>
+    <p>不管是周末焦点战，还是深夜的冷门赛事 —— 竞猜的乐趣不只在于结果，更在于对比赛的思考和期待。</p>
+    <div class="hero-extra">⚽ 一场比赛 · 一点投入 · 十分专注</div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- 优势区 网格卡片 -->
+  <h2 class="section-title">为什么很多人聊起竞彩</h2>
+  <div class="grid-cards">
+    <div class="card">
+      <div class="card-icon">🧠</div>
+      <h3>懂球更懂彩</h3>
+      <p>熟悉球队风格、阵型变化、主客场数据，把看球的经验变成理性的判断依据。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>数据随时查</h3>
+      <p>赔率变动、交锋记录、近期状态——每一条信息都可能帮你梳理比赛脉络。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧩</div>
+      <h3>多种玩法组合</h3>
+      <p>胜平负、比分、总进球、半全场…… 找到适合自己思路的那几项。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📱</div>
+      <h3>手机就能参与</h3>
+      <p>赛前几分钟也能快速选择，场内场外同步感受比赛节奏。</p>
+    </div>
+  </div>
+
+  <!-- 说明区 (场景/提示) -->
+  <div class="explain-section">
+    <h2>竞彩的日常打开方式</h2>
+    <div class="explain-flex">
+      <div class="explain-text">
+        <p>很多人把竞彩当成「看球时的一个调味料」—— 买几张彩票并不是为了暴富，而是让自己对每一脚射门都更有代入感。比如周末德甲、意甲连场，花几分钟看看对阵，选一两场熟悉的球队，小额试试手气。</p>
+        <p>当然也要提醒自己：竞彩的本质是娱乐，无论输赢都不该影响生活节奏。了解比赛、保持理性，才能长期享受这种观赛方式。</p>
+      </div>
+      <div class="explain-highlight">
+        <ul>
+          <li>选择自己关注的联赛</li>
+          <li>兼顾主客场&伤病信息</li>
+          <li>单场或串关量力而行</li>
+          <li>不追连败，不贪高赔</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-preview">
+    <h2>常见问题 · 简易版</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">竞彩和外围有什么区别？</div>
+        <div class="faq-a">竞彩是经国家批准的体育彩票玩法，资金流向公益事业，透明度更高，玩法也相对简单固定。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">新手适合从哪种玩法开始？</div>
+        <div class="faq-a">胜平负最直接，选一场强弱分明的比赛试试判断，找到感觉后再尝试其他类型。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">每天都有比赛可以选吗？</div>
+        <div class="faq-a">基本每天都有竞彩赛事，五大联赛、杯赛、亚冠等轮番上阵，淡季也有小联赛填充。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">中奖后去哪里兑奖？</div>
+        <div class="faq-a">单注1万元以下可在省内任意体彩店兑奖，超过1万元需到当地体彩中心办理。</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-tagline">以理性看待赛事，用热爱感受体育。</p>
+    <p class="footer-link">
+      了解更多内容，欢迎访问 <a href="https://official-site-sporttery.com">竞彩网</a>
+    </p>
+    <p class="footer-copy">© 2025 · 竞彩信息参考 · 请理性购彩，量力而行</p>
+  </div>
+</footer>
+
+</body>
+</html>
